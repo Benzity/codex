@@ -12,7 +12,11 @@ cd ~                          # 과제 폴더가 따로 있으면 그 폴더
 bash ~/kit/setup.sh           # git 저장소가 아니라고 나오면: bash ~/kit/setup.sh --git
 codex
 ```
-Codex 안에서: `/model`로 모델 선택, 추론 강도 설정, `/status`로 AGENTS.md가 잡혔는지 확인.
+Codex 안에서: `/model`로 모델 선택(추론 강도는 높음 이상), `/status`로 AGENTS.md가 잡혔는지 확인.
+첫 응답 첫 줄에 `[kit 로드: DOCTRINE, RESPONSE_FORMAT]`가 없으면 이렇게 다시 지시:
+```
+AGENTS.md의 세션 시작 의식부터 다시 해. DOCTRINE.md와 RESPONSE_FORMAT.md를 읽고 첫 줄 표시를 해.
+```
 
 ## 터미널 탭 배치 (＋ 버튼, 최대 8개)
 1. 구현 Codex

@@ -4,7 +4,9 @@ Codex CLI로 실무형 과제를 할 때 쓰는 개인 작업 키트입니다.
 작업 절차, 검증 루틴, 문서 템플릿과 최소한의 서버 뼈대만 들어 있고, 특정 과제의 풀이는 들어 있지 않습니다.
 
 ## 구성
-- `AGENTS.md`: Codex 작업 규칙
+- `AGENTS.md`: Codex 작업 규칙 (세션마다 DOCTRINE, RESPONSE_FORMAT을 읽게 함)
+- `DOCTRINE.md`: 행동강령. 작업 사이클, 과제 유형별 기준, 환각 방지, 막혔을 때, 시간 관리
+- `RESPONSE_FORMAT.md`: Codex 답변 구조
 - `skills/`: interview, plan, verify, review, handoff, submit
 - `templates/`: PLAN, DECISIONS, VERIFY, INTERVIEW_NOTES, AI_COLLABORATION, HANDOFF, gitignore
 - `scaffold/fastapi-basic/`: FastAPI + 정적 페이지 + pytest 최소 뼈대 (필요할 때만 복사)
