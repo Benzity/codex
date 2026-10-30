@@ -5,16 +5,19 @@
 - 감독 환경 확인: 컴퓨터 카메라, 전체 화면 공유, 모바일 카메라.
 - 10:00 정각 시작이 목표. 작업 180분 + 확인 문제 30분 = 210분이고 14:00에 강제 종료되니까, 늦어도 10:30 전에는 시작해야 한다.
 
-## 시작 직후 3분
-```bash
-git clone https://github.com/<계정>/codex-kit ~/kit
-cd ~                          # 과제 폴더가 따로 있으면 그 폴더
-bash ~/kit/setup.sh           # git 저장소가 아니라고 나오면: bash ~/kit/setup.sh --git
-codex
+## 시작 직후 (외워 둘 것은 이것뿐)
+감독이 앱 전환을 기록하니까 다른 창을 보지 말고 직접 타이핑한다.
+1. 터미널에 `codex` 입력 → `/model`로 모델 선택, 추론 강도는 높음 이상
+2. 첫 프롬프트:
 ```
-Codex 안에서: `/model`로 모델 선택(추론 강도는 높음 이상), `/status`로 AGENTS.md가 잡혔는지, `/skills`로 스킬 목록 확인.
-스킬 목록에 interview, plan 같은 키트 스킬이 없으면: `SKILLS_DIR=~/.codex/skills bash ~/kit/setup.sh` 후 codex 재시작.
-첫 응답 첫 줄에 `[kit 로드: DOCTRINE, RESPONSE_FORMAT, SKILL_MAP]`가 없으면 이렇게 다시 지시:
+https://github.com/Benzity/codex-kit 를 ~/kit 에 clone하고 ~/kit/START.md 읽고 그대로 진행해
+```
+3. 보고가 오면 첫 줄 `[kit 로드: DOCTRINE, RESPONSE_FORMAT, SKILL_MAP]` 확인. 이후 이 PLAYBOOK은 웹 IDE 에디터에서 ~/kit/PLAYBOOK.md로 열어 본다.
+
+문제가 생기면
+- clone이 안 되면: 터미널에서 직접 `git clone https://github.com/Benzity/codex-kit ~/kit` 후 같은 프롬프트
+- `/skills`에 키트 스킬이 안 보이면: `SKILLS_DIR=~/.codex/skills bash ~/kit/setup.sh` 후 codex 재시작
+- 첫 줄 표시가 없으면:
 ```
 AGENTS.md의 세션 시작 의식부터 다시 해. DOCTRINE.md, RESPONSE_FORMAT.md, SKILL_MAP.md를 읽고 첫 줄 표시를 해.
 ```

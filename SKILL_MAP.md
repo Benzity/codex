@@ -18,6 +18,7 @@
 | 과제 유형 / 상황 | 스킬 | 출처 | 언제 쓰나 |
 |---|---|---|---|
 | 화면(UI)이 있는 서비스 | frontend-design | Anthropic, Apache 2.0 (키트 포함) | 화면을 만들기 전에 한 번 읽고 방향을 정한다 |
+| 화면, 보고서의 색과 글꼴 통일 | theme-factory | Anthropic, Apache 2.0 (키트 포함) | 테마 하나를 골라 CSS 변수로 적용한다. 테마 목록은 themes/ 폴더 |
 | 화면 동작 확인 (Python) | webapp-testing | Anthropic, Apache 2.0 (키트 포함) | verify 단계. Python Playwright가 될 때 |
 | 화면 동작 확인 (Node) | playwright | OpenAI, Apache 2.0 (키트 포함) | verify 단계. npx가 될 때 |
 | PDF 읽기, 만들기 | pdf | OpenAI, Apache 2.0 (키트 포함) | PDF가 입력이나 결과물일 때 |
@@ -43,6 +44,16 @@ git -C /tmp/anthropic-skills sparse-checkout set skills/xlsx skills/docx
 cp -r /tmp/anthropic-skills/skills/xlsx ~/.agents/skills/    # 필요한 것만
 ```
 엑셀 파일을 읽기만 하는 분석은 이 스킬 없이 pandas, openpyxl로 충분하다.
+
+## 설치하지 않는 스킬 (쓰지 말 것)
+| 스킬 | 이유 |
+|---|---|
+| vercel-deploy, netlify-deploy, cloudflare-deploy, render-deploy | 외부 배포 = 작업물 외부 전송 (금지) |
+| yeet, gh-fix-ci, gh-address-comments | git push, PR 등 외부 전송 (push 차단, 금지) |
+| linear, notion-*, sentry, figma-* | 외부 서비스 연결이 필요하고 과제와 무관 |
+| imagegen, speech, transcribe | 별도 AI 모델 API 호출에 해당할 수 있음 |
+| web-artifacts-builder, algorithmic-art, canvas-design, brand-guidelines | 다른 에이전트 전용 산출물이거나 과제와 무관 |
+기본 내장 skill-installer로 위 스킬을 설치하지 않는다.
 
 ## 원칙
 - 스킬은 적을수록 좋다. 이 과제에 필요한 것만 쓴다.

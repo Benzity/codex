@@ -5,6 +5,7 @@
 | 스킬 | 원본 | 라이선스 |
 |---|---|---|
 | frontend-design | https://github.com/anthropics/skills (skills/frontend-design, commit ca45fc4) | Apache License 2.0 |
+| theme-factory | https://github.com/anthropics/skills (skills/theme-factory, commit ca45fc4) | Apache License 2.0 |
 | webapp-testing | https://github.com/anthropics/skills (skills/webapp-testing, commit ca45fc4) | Apache License 2.0 |
 | playwright | https://github.com/openai/skills (skills/.curated/playwright, commit 49f948f) | Apache License 2.0 |
 | pdf | https://github.com/openai/skills (skills/.curated/pdf, commit 49f948f) | Apache License 2.0 |
