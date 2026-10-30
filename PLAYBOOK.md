@@ -10,12 +10,12 @@
 1. 터미널에 `codex` 입력 → `/model`로 모델 선택, 추론 강도는 높음 이상
 2. 첫 프롬프트:
 ```
-https://github.com/Benzity/codex-kit 를 ~/kit 에 clone하고 ~/kit/START.md 읽고 그대로 진행해
+https://github.com/Benzity/codex 를 ~/kit 에 clone하고 ~/kit/START.md 읽고 그대로 진행해
 ```
 3. 보고가 오면 첫 줄 `[kit 로드: DOCTRINE, RESPONSE_FORMAT, SKILL_MAP]` 확인. 이후 이 PLAYBOOK은 웹 IDE 에디터에서 ~/kit/PLAYBOOK.md로 열어 본다.
 
 문제가 생기면
-- clone이 안 되면: 터미널에서 직접 `git clone https://github.com/Benzity/codex-kit ~/kit` 후 같은 프롬프트
+- clone이 안 되면: 터미널에서 직접 `git clone https://github.com/Benzity/codex ~/kit` 후 같은 프롬프트
 - `/skills`에 키트 스킬이 안 보이면: `SKILLS_DIR=~/.codex/skills bash ~/kit/setup.sh` 후 codex 재시작
 - 첫 줄 표시가 없으면:
 ```

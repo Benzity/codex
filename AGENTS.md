@@ -52,6 +52,8 @@
 
 ## 스킬
 과제 유형을 판단하면 ~/kit/SKILL_MAP.md에서 쓸 스킬을 골라 응시자에게 한 줄로 알리고 쓴다.
+표에 없으면 `bash ~/kit/tools/find-skill.sh 키워드`로 찾고 `bash ~/kit/tools/get-skill.sh <id>`로 설치한다.
+금지 스킬은 설치하지 않는다. FORCE=1은 응시자가 직접 승인했을 때만 쓴다.
 설치 위치는 ~/.agents/skills/ 이고, 키트 자체 스킬은 아래 경로에서 직접 읽어도 된다.
 - 담당자 인터뷰 준비와 기록: ~/kit/skills/interview/SKILL.md
 - 계획 수립: ~/kit/skills/plan/SKILL.md
