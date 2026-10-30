@@ -50,17 +50,20 @@ else
 fi
 rm -f "$TMP_AGENTS"
 
-# 3. Codex 스킬 폴더에도 복사 (인식 여부와 무관하게 AGENTS.md가 경로로 안내함)
-mkdir -p "$HOME/.codex/skills"
-for d in "$KIT"/skills/*/; do
+# 3. 스킬 설치: Codex 사용자 스킬 경로 ~/.agents/skills
+#    (구버전 Codex 대비: SKILLS_DIR=~/.codex/skills bash setup.sh 로 경로 변경 가능)
+SKILLS_DIR="${SKILLS_DIR:-$HOME/.agents/skills}"
+mkdir -p "$SKILLS_DIR"
+for d in "$KIT"/skills/*/ "$KIT"/third_party/*/; do
+  [ -f "$d/SKILL.md" ] || continue
   n="$(basename "$d")"
-  if [ -e "$HOME/.codex/skills/$n" ]; then
-    echo "[kit] ~/.codex/skills/$n 이미 있음, 건너뜀"
+  if [ -e "$SKILLS_DIR/$n" ]; then
+    echo "[kit] $SKILLS_DIR/$n 이미 있음, 건너뜀"
   else
-    cp -r "$d" "$HOME/.codex/skills/$n"
+    cp -r "$d" "$SKILLS_DIR/$n"
   fi
 done
-echo "[kit] 스킬 복사: ~/.codex/skills/"
+echo "[kit] 스킬 설치: $SKILLS_DIR ($(ls "$SKILLS_DIR" | tr '\n' ' '))"
 
 # 4. git
 if git -C "$WORK" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
@@ -80,6 +83,7 @@ fi
 cat <<EOF
 
 [kit] 완료. 다음 순서:
-  1) codex 실행 → /model 로 모델 선택 → /status 로 AGENTS.md 로드 확인
+  1) codex 실행 → /model 로 모델 선택 → /status 로 AGENTS.md 로드 확인 → /skills 로 스킬 목록 확인
+     (목록에 키트 스킬이 없으면: SKILLS_DIR=~/.codex/skills bash $KIT/setup.sh 후 codex 재시작)
   2) 첫 지시는 $KIT/PLAYBOOK.md 의 "첫 지시" 복사
 EOF

@@ -6,8 +6,8 @@
 너는 근거를 찾고, 구현하고, 실제로 실행해서 확인한다.
 
 ## 세션 시작 의식 (모든 세션에서 반드시)
-1. ~/kit/DOCTRINE.md (행동강령)와 ~/kit/RESPONSE_FORMAT.md (답변 구조)를 읽는다.
-2. 첫 응답의 첫 줄에 `[kit 로드: DOCTRINE, RESPONSE_FORMAT]`라고 쓴다.
+1. ~/kit/DOCTRINE.md (행동강령), ~/kit/RESPONSE_FORMAT.md (답변 구조), ~/kit/SKILL_MAP.md (스킬 지도)를 읽는다.
+2. 첫 응답의 첫 줄에 `[kit 로드: DOCTRINE, RESPONSE_FORMAT, SKILL_MAP]`라고 쓴다.
    이 줄이 없으면 응시자는 규칙이 로드되지 않은 것으로 보고 다시 지시한다.
 3. docs/HANDOFF.md에 내용이 있으면 읽고 이어서 한다.
 4. 이후 모든 응답은 RESPONSE_FORMAT.md 구조를 따른다.
@@ -50,7 +50,9 @@
 ## 보고 형식
 - ~/kit/RESPONSE_FORMAT.md를 따른다. 최소한 결론 / 변경 / 검증 / 리스크 / 다음은 항상 쓴다.
 
-## 스킬 (필요할 때 해당 파일을 읽고 따른다)
+## 스킬
+과제 유형을 판단하면 ~/kit/SKILL_MAP.md에서 쓸 스킬을 골라 응시자에게 한 줄로 알리고 쓴다.
+설치 위치는 ~/.agents/skills/ 이고, 키트 자체 스킬은 아래 경로에서 직접 읽어도 된다.
 - 담당자 인터뷰 준비와 기록: ~/kit/skills/interview/SKILL.md
 - 계획 수립: ~/kit/skills/plan/SKILL.md
 - 검증: ~/kit/skills/verify/SKILL.md

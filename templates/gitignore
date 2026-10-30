@@ -1,6 +1,7 @@
 # 키트와 환경 설정 (작업 폴더가 홈일 때 대비)
 /kit/
 .codex/
+.agents/
 .config/
 .cache/
 .npm/
