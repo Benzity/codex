@@ -1,0 +1,26 @@
+# 키트와 환경 설정 (작업 폴더가 홈일 때 대비)
+/kit/
+.codex/
+.config/
+.cache/
+.npm/
+.local/
+.bash_history
+.bash_logout
+.bashrc
+.profile
+.claude*
+.sudo_as_admin_successful
+.viminfo
+.lesshst
+
+# 빌드 산출물
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+dist/
+.pytest_cache/
+*.log
+.env

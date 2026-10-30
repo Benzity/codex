@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>service</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main>
+    <h1>service</h1>
+    <p>서버 상태: <span id="status">확인 중</span></p>
+  </main>
+  <script>
+    fetch("/api/health")
+      .then((r) => r.json())
+      .then((d) => { document.getElementById("status").textContent = d.status; })
+      .catch(() => { document.getElementById("status").textContent = "연결 실패"; });
+  </script>
+</body>
+</html>
