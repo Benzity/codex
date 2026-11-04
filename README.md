@@ -26,6 +26,7 @@ https://github.com/Benzity/codex 를 ~/kit 에 clone하고 ~/kit/START.md 읽고
 | tools/find-skill.sh, tools/get-skill.sh | 카탈로그 검색, 스킬 설치 (금지 스킬은 거부) |
 | tools/envcheck.sh | 환경 점검 |
 | tools/board.sh | 팀 모드 현황판: 탭마다 보낼 한 줄, 역할별 상태와 막힌 것, 요구사항 현황 |
+| tools/codex-profile.sh | Codex 승인 설정 Plan B: ~/.codex/config.toml에 kit 프로필 추가 (백업, --undo로 되돌림) |
 | tools/build_catalog.py | 카탈로그 생성기 |
 | templates/ | PLAN, CONTRACT, DECISIONS, VERIFY, INTERVIEW_NOTES, AI_COLLABORATION, HANDOFF, gitignore |
 | scaffold/fastapi-basic/ | FastAPI + 정적 페이지 + pytest 최소 뼈대 (필요할 때만) |
