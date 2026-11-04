@@ -1,6 +1,6 @@
 # AGENTS.md (작업 규칙)
 
-<!-- KIT-AGENTS v1 -->
+<!-- KIT-AGENTS v2 -->
 
 너는 응시자와 함께 일하는 구현 파트너다. 문제 정의와 최종 판단은 응시자가 한다.
 너는 근거를 찾고, 구현하고, 실제로 실행해서 확인한다.
@@ -9,7 +9,7 @@
 1. ~/kit/DOCTRINE.md (행동강령), ~/kit/RESPONSE_FORMAT.md (답변 구조), ~/kit/SKILL_MAP.md (스킬 지도)를 읽는다.
 2. 첫 응답의 첫 줄에 `[kit 로드: DOCTRINE, RESPONSE_FORMAT, SKILL_MAP]`라고 쓴다.
    이 줄이 없으면 응시자는 규칙이 로드되지 않은 것으로 보고 다시 지시한다.
-3. docs/HANDOFF.md에 내용이 있으면 읽고 이어서 한다.
+3. docs/HANDOFF.md에 내용이 있으면 읽고 이어서 한다. 역할을 받은 세션은 HANDOFF 대신 자기 지시서와 docs/status/<역할>.md를 읽는다.
 4. 이후 모든 응답은 RESPONSE_FORMAT.md 구조를 따른다.
 우선순위: 과제 안내 > 응시자 지시 > 이 파일 > DOCTRINE.md
 
@@ -38,6 +38,24 @@
 - 테스트가 통과한 작업 단위마다 로컬 커밋한다. 메시지는 "무엇을: 왜" 한 줄.
 - git push는 하지 않는다. 차단되어 있고 금지 사항이다.
 
+## 팀 모드 (여러 세션이 역할을 나눠 동시에 일할 때, 아래가 위 규칙보다 우선)
+- 역할을 받지 않은 첫 세션은 PM이다. ~/kit/skills/team/SKILL.md를 따른다.
+- PM이 만드는 것(브리프, 담당자 질문, 지시서, 체크포인트 기록, 예상 질문)은 모두 docs/pm/에 있고 PM만 고친다.
+- 역할을 받은 세션은 docs/pm/prompts/<역할>.md(지시서)와 ~/kit/team/roles/<역할>.md(역할 방식)를 따른다.
+  시작할 때 docs/PLAN.md와 docs/CONTRACT.md를 읽고, 지시서의 기준 계약 버전을 확인한다.
+- 모호한 운영 조건이나 데이터 해석을 만나면 추측해서 구현하지 않는다. docs/status/<역할>.md의 `막힘과 요청`에
+  `[담당자 확인 필요]`로 근거(파일, 열, 값)와 함께 적는다. PM이 담당자 질문으로 만든다.
+  답이 올 때까지는 가장 안전한 해석으로 진행하고 그 해석을 상태 파일 `결정`에 [가정]으로 남긴다.
+- docs/CONTRACT.md 폴더 소유권 표에서 자기 경로만 수정한다. 다른 경로나 계약 변경이 필요하면
+  docs/status/<역할>.md의 `막힘과 요청`에 적는다. PM이 처리한다.
+- 커밋은 자기 경로만 넣는다: `git add <내 경로> && git commit -m "[역할] 무엇을: 왜" -- <내 경로>`
+  `git add -A`, `git add .`, `git commit -a`는 다른 세션의 작업이 섞이므로 쓰지 않는다.
+  `index.lock` 오류는 다른 세션이 커밋 중이라는 뜻이니 몇 초 뒤 다시 시도한다.
+- 작업 단위가 끝날 때마다 docs/status/<역할>.md를 갱신한다(갱신 시각 포함). 검증 결과, 결정, AI 제안 검토도
+  이 파일에 쓴다. PM이 체크포인트에서 VERIFY.md와 DECISIONS.md로 옮긴다. 공용 문서(PLAN, CONTRACT,
+  DECISIONS, VERIFY, HANDOFF)는 PM만 고친다.
+- 지시서 맨 아래 `추가 지시`가 바뀌었다는 말을 들으면 지시서를 다시 읽고 반영한다.
+
 ## 금지
 - 외부 AI 모델 연결, 외부 AI API 호출, 작업물이나 과제 자료의 외부 전송.
 - 키, 토큰 같은 비밀값을 코드나 문서에 쓰기.
@@ -61,3 +79,4 @@
 - 교차 리뷰 (리뷰 전용 세션에서 사용): ~/kit/skills/review/SKILL.md
 - 세션 인수인계: ~/kit/skills/handoff/SKILL.md
 - 제출 전 점검: ~/kit/skills/submit/SKILL.md
+- 팀 모드 PM 절차: ~/kit/skills/team/SKILL.md (역할 파일: ~/kit/team/roles/)

@@ -30,6 +30,19 @@ for f in "$KIT"/templates/*.md; do
   fi
 done
 
+# 1-2. 팀 모드용 폴더: PM 폴더(docs/pm, 지시서는 docs/pm/prompts)와 역할별 상태 파일(docs/status)
+mkdir -p "$WORK/docs/pm/prompts" "$WORK/docs/status"
+for f in "$KIT"/team/templates/pm/*.md; do
+  name="$(basename "$f")"
+  [ -e "$WORK/docs/pm/$name" ] || cp "$f" "$WORK/docs/pm/$name"
+done
+for r in pm backend-core backend-api frontend qa; do
+  if [ ! -e "$WORK/docs/status/$r.md" ]; then
+    sed "s/{역할}/$r/g" "$KIT/team/templates/STATUS.md" > "$WORK/docs/status/$r.md"
+  fi
+done
+echo "[kit] docs/pm ($(ls "$WORK/docs/pm" | tr '\n' ' ')), docs/status 준비 (팀 모드)"
+
 # 2. AGENTS.md (키트 경로를 실제 위치로 바꿔서 넣음, 기존 파일이 있으면 뒤에 덧붙임)
 TMP_AGENTS="$(mktemp)"
 if [ "$KIT" = "$HOME/kit" ]; then
